@@ -24,7 +24,7 @@ function Screen1({ navigation }) {
 
 
 
-function Screen2({navigation, route}) {
+function Screen2({ navigation, route }) {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
     fetch('https://6544b4795a0b4b04436ccc12.mockapi.io/lab7')
@@ -40,6 +40,10 @@ function Screen2({navigation, route}) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.viewAvatar}>
+        <Image source={require('./assets/Rectangle.png')} style={styles.avatar}></Image>
+        {/* <Text>Hi Twinkle</Text> */}
+      </View>
       <View style={styles.viewInput}>
         <Image source={require('./assets/Frame1.png')} style={styles.imageInput}></Image>
         <TextInput style={styles.textInputSc1} placeholder='Search'></TextInput>
@@ -49,9 +53,9 @@ function Screen2({navigation, route}) {
         <ScrollView>
           {filteredJobs.map((listJob => (
             <View style={styles.viewList}>
-              <Image source={require('./assets/checkbox.png')} style={{width: 24, height: 24}}></Image>
+              <Image source={require('./assets/checkbox.png')} style={{ width: 24, height: 24 }}></Image>
               <Text style={styles.textList}>{listJob.name}</Text>
-              <Image source={require('./assets/edit.png')} style={{width: 24, height: 24, alignItems: 'flex-end'}}></Image>
+              <Image source={require('./assets/edit.png')} style={{ width: 24, height: 24, alignItems: 'flex-end' }}></Image>
             </View>
           )))}
         </ScrollView>
@@ -156,5 +160,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     marginHorizontal: 5,
+  },
+  avatar: {
+    width: 50,
+    height: 50,
+  },
+  viewAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#D9CBF6'
   },
 });
